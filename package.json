@@ -1,0 +1,17 @@
+{
+  "name": "monsterpiecejs",
+  "version": "1.0.0",
+  "scripts": {
+    "tailwind-watch": "tailwindcss -i index.css -o ./static/css/dist.css --watch",
+    "tailwind-build": "tailwindcss -i index.css -o ./static/css/dist.css --minify"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.7",
+    "tailwindcss": "^3.4.1"
+  },
+  "main": "tailwind.config.js",
+  "description": ""
+}

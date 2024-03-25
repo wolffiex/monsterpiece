@@ -8,6 +8,8 @@ charset-normalizer==3.3.2
 decorator==5.1.1
 distro==1.9.0
 django==5.0.3
+django-stubs==4.2.7
+django-stubs-ext==4.2.7
 executing==2.0.1
 filelock==3.13.2
 fsspec==2024.3.1
@@ -42,6 +44,8 @@ stack-data==0.6.3
 tokenizers==0.15.2
 tqdm==4.66.2
 traitlets==5.14.2
+types-pytz==2024.1.0.20240203
+types-pyyaml==6.0.12.20240311
 typing-extensions==4.10.0
 urllib3==2.2.1
 wcwidth==0.2.13
