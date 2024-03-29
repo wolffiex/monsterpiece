@@ -17,7 +17,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from django.shortcuts import redirect
+
+def root_redirect(request):
+    if request.user.is_authenticated:
+        return redirect('web/app')
+    else:
+        return redirect('web/login')
+
 urlpatterns = [
+    path("", root_redirect),
     path("admin/", admin.site.urls),
     path("web/", include("web.urls")),
 ]
