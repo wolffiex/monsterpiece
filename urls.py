@@ -20,10 +20,7 @@ from django.urls import path, include
 from django.shortcuts import redirect
 
 def root_redirect(request):
-    if request.user.is_authenticated:
-        return redirect('web/app')
-    else:
-        return redirect('web/login')
+    return redirect('web')
 
 urlpatterns = [
     path("", root_redirect),

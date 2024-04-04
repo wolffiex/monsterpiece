@@ -26,12 +26,13 @@ class LoginView(View):
 class Topic:
     emoji_string : str
     label: str
+    convo_count: int
 
 class TopicView(View):
     @method_decorator(login_required)
     def get(self, request):
         topics = []
-        topics.append(Topic("&#x1F9D1;&#x200D;&#x1F373;", "Cooking"))
-        topics.append(Topic("&#x1F6F0;&#xFE0F", "Raspberry Pi"))
-        topics.append(Topic("&#x1F426;", "Tweets"))
+        topics.append(Topic("&#x1F9D1;&#x200D;&#x1F373;", "Cooking", 1))
+        topics.append(Topic("&#x1F6F0;&#xFE0F", "Raspberry Pi", 4))
+        topics.append(Topic("&#x1F426;", "Tweets", 6))
         return render(request, 'topics.html', {"topics": topics})
