@@ -4,12 +4,12 @@ from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
-
+from dataclasses import dataclass
 
 class LoginView(View):
     def get(self, request):
         if request.user.is_authenticated:
-            return redirect('app')
+            return redirect('topics')
         return render(request, "login.html", {})
 
     def post(self, request):
@@ -18,12 +18,20 @@ class LoginView(View):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('app')  # Redirect to the app view
+            return redirect('topics')  # Redirect to the app view
         else:
             messages.error(request, 'Invalid username or password.')
             return render(request, 'login.html', {})
+@dataclass
+class Topic:
+    emoji_string : str
+    label: str
 
-class AppView(View):
+class TopicView(View):
     @method_decorator(login_required)
     def get(self, request):
-        return render(request, 'app.html')
+        topics = []
+        topics.append(Topic("&#x1F9D1;&#x200D;&#x1F373;", "Cooking"))
+        topics.append(Topic("&#x1F6F0;&#xFE0F", "Raspberry Pi"))
+        topics.append(Topic("&#x1F426;", "Tweets"))
+        return render(request, 'topics.html', {"topics": topics})
