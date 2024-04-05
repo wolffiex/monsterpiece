@@ -1,0 +1,28 @@
+{% extends 'app.html' %}
+
+{% block head %}
+<title>Threads</title>
+{% endblock %}
+
+{% block content %}
+<ul role="list" class="divide-y divide-gray-100">
+  {% for thread in threads %}
+  <li class="flex gap-x-6 py-5">
+    <div class="flex gap-x-4 p-2">
+      <div class="min-w-0 flex justify-between">
+        <div class="flex-auto">
+          <p class="text-sm font-semibold leading-6 text-gray-900">{{ thread.summary }}</p>
+          <p class="mt-1 text-xs leading-5 text-gray-500">{{thread.tokens}} token{{ thread.tokens|pluralize }}</p>
+        </div>
+      </div>
+      <div class="flex-end flex items-center">
+        <span
+          class="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">
+          <time datetime="2024-01-01">3 days ago</time>
+        </span>
+      </div>
+    </div>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}
